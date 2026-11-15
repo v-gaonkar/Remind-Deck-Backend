@@ -1,5 +1,5 @@
 CREATE TABLE decks (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
     name VARCHAR(50) NOT NULL,
     description TEXT,

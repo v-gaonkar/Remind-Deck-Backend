@@ -1,6 +1,5 @@
 package com.dev.remindeck.exception;
 
-import com.dev.remindeck.entity.Deck;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,6 +19,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DeckNotFoundException.class)
     public ResponseEntity<?> handleDeckNotFoundException(DeckNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(CardNotFoundException.class)
+    public ResponseEntity<?> handleCardNotFoundException(CardNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
     }
 
